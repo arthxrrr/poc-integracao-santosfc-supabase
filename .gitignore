@@ -36,9 +36,4 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-# Documentation files (tutorial/guide files)
-SUPABASE_SETUP.md
-INSTRUCOES_RAPIDAS.md
-COMO_VERIFICAR_DADOS_SUPABASE.md
-
 app-example
