@@ -1,110 +1,137 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#000000', dark: '#000000' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
+        <View style={styles.santosHeader}>
+          <ThemedText style={styles.santosTitle}>SANTOS FC</ThemedText>
+          <ThemedText style={styles.santosSubtitle}>História e Tradição</ThemedText>
+        </View>
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title" style={styles.exploreTitle}>História do Santos</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+      
+      <ThemedText style={styles.introText}>
+        Descubra mais sobre a rica história e conquistas do Santos Futebol Clube.
+      </ThemedText>
+
+      <Collapsible title="🏆 Principais Títulos">
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Copa Libertadores:</ThemedText> 3 títulos (1962, 1963, 2011)
         </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Mundial de Clubes:</ThemedText> 2 títulos (1962, 1963)
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Brasileirão:</ThemedText> 8 títulos
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Copa do Brasil:</ThemedText> 1 título (2010)
+        </ThemedText>
+      </Collapsible>
+
+      <Collapsible title="👑 Grandes Ídolos">
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Pelé:</ThemedText> O Rei do Futebol, maior artilheiro da história
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Neymar:</ThemedText> Craque que brilhou na Vila antes da Europa
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Robinho:</ThemedText> Gênio da bola que encantou o mundo
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • <ThemedText type="defaultSemiBold">Coutinho:</ThemedText> Meia criativo e técnico
+        </ThemedText>
+      </Collapsible>
+
+      <Collapsible title="🏟️ Vila Belmiro">
+        <ThemedText style={styles.collapsibleText}>
+          O Estádio Urbano Caldeira, conhecido como Vila Belmiro, é a casa do Santos desde 1916.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          Com capacidade para 16.068 torcedores, é um dos estádios mais tradicionais do Brasil.
+        </ThemedText>
+        <ExternalLink href="https://www.santosfc.com.br/">
+          <ThemedText type="link">Site Oficial do Santos FC</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+
+      <Collapsible title="📅 Fundação e História">
+        <ThemedText style={styles.collapsibleText}>
+          O Santos foi fundado em 14 de abril de 1912 por um grupo de esportistas da cidade de Santos.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          O clube nasceu com o objetivo de representar a cidade no futebol e se tornou um dos maiores do mundo.
+        </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          As cores preto e branco foram escolhidas para representar a elegância e a tradição.
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
+
+      <Collapsible title="🎯 Curiosidades">
+        <ThemedText style={styles.collapsibleText}>
+          • O Santos é o único clube brasileiro a ter conquistado a Copa Libertadores de forma invicta (2011)
         </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+        <ThemedText style={styles.collapsibleText}>
+          • Pelé marcou mais de 1000 gols pelo Santos
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+        <ThemedText style={styles.collapsibleText}>
+          • O clube tem uma das maiores torcidas do Brasil
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
+        <ThemedText style={styles.collapsibleText}>
+          • A Vila Belmiro é considerada um dos estádios mais bonitos do país
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
       </Collapsible>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+  },
+  santosHeader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000000',
+    paddingVertical: 40,
+  },
+  santosTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  santosSubtitle: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    textAlign: 'center',
+    opacity: 0.8,
+  },
+  exploreTitle: {
+    color: '#000000',
+  },
+  introText: {
+    color: '#333333',
+    marginBottom: 16,
+    fontSize: 16,
+  },
+  collapsibleText: {
+    color: '#333333',
+    marginBottom: 8,
+    lineHeight: 20,
   },
 });
